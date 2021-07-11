@@ -8,11 +8,29 @@ const addContact = (name, number) => ({
         number: number,
         id: uuidv4()
 
-    }
+    },
 
+});
+
+const deleteContact = idFromContact => ({
+    type: types.DELETE,
+    payload: idFromContact,
 })
 
-export default addContact;
+const changeFilter = value => ({
+    type: types.CHANGE_FILTER,
+    payload: value,
+})
+
+export default { addContact, deleteContact, changeFilter }
+
+
+
+
+
+
+
+// export default { addContact, deleteContact };
 
 // const addContact = createAction('phonebook/add', ({ name, number }) => ({
 //     payload: {
