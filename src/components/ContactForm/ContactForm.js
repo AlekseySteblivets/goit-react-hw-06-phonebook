@@ -4,9 +4,9 @@ import styles from './ContactForm.module.css';
 // import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 // import { number } from 'yargs';
-import phonebooksActions from '../../redux/phonebooks/phonebooks-actions';
+import * as phonebooksActions from '../../redux/phonebooks/phonebooks-actions';
 
-
+// import * as actions from 'redux/contacts/contacts-actions';
 
 class ContactForm extends Component {
     inputId = uuidv4();
@@ -72,6 +72,7 @@ class ContactForm extends Component {
         )
     };
 };
+
 
 
 const mapDispatchToProps = dispatch => ({

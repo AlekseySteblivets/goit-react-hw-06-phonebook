@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import types from './phonebooks-types';
 
-const addContact = (name, number) => ({
+export const addContact = (name, number) => ({
     type: types.ADD,
     payload: {
         name: name,
@@ -12,17 +12,17 @@ const addContact = (name, number) => ({
 
 });
 
-const deleteContact = idFromContact => ({
+export const deleteContact = idFromContact => ({
     type: types.DELETE,
     payload: idFromContact,
 })
 
-const changeFilter = value => ({
+export const changeFilter = value => ({
     type: types.CHANGE_FILTER,
     payload: value,
 })
 
-export default { addContact, deleteContact, changeFilter }
+// export default { addContact, deleteContact, changeFilter }
 
 
 

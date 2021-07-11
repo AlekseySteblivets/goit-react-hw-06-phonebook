@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
-import phonebooksActions from '../../redux/phonebooks/phonebooks-actions';
+import * as phonebooksActions from '../../redux/phonebooks/phonebooks-actions';
 
 const Filter = ({ value, оnChange }) => (
     <label>
