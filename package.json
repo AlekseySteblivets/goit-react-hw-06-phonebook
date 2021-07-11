@@ -2,7 +2,7 @@
   "name": "goit-react-hw-03-phonebooks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AlekseySteblivets.github.io/goit-react-hw-03-phonebooks",
+  "homepage": "https://AlekseySteblivets.github.io/goit-react-hw-06-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -11,7 +11,9 @@
     "modern-normalize": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "react-scripts": "4.0.3",
+    "redux": "^4.1.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -41,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "props-type": "^1.0.1"
+    "props-type": "^1.0.1",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
