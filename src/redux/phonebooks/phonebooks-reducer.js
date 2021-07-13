@@ -1,5 +1,8 @@
 import { combineReducers } from "redux";
-import types from './phonebooks-types';
+import { createReducer } from "@reduxjs/toolkit";
+// import types from './phonebooks-types';
+import * as phonebooksActions from './phonebooks-actions';
+
 // import actions from './phonebooks-actions';
 // {
 //     contacts: {
@@ -8,47 +11,50 @@ import types from './phonebooks-types';
 //     }
 // }
 
+const items = createReducer([], {
+    [phonebooksActions.addContact]: (state, { payload }) => [payload, ...state],
+    [phonebooksActions.deleteContact]: (state, { payload }) => state.filter(contact =>
+        contact.id !== payload),
+})
+// const items = (
+//     state = [], { type, payload }) => {
+//     switch (type) {
+//         case types.ADD:
+//             return [payload, ...state];
+//         case types.DELETE:
+//             return state.filter(contact =>
+//                 contact.id !== payload)
+//         default:
+//             return state;
+//     }
+// };
 
-const items = (
-    state = [
-        { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-        { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-        { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-        { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
-    { type, payload }) => {
-    switch (type) {
-        case types.ADD:
-            const findContact = state.find(contact => contact.name === payload.name && contact.number === payload.number);
 
+const filter = createReducer('', {
+    [phonebooksActions.changeFilter]: (_, { payload }) => payload,
+})
+// const filter = (state = '', { type, payload }) => {
+//     switch (type) {
+//         case types.CHANGE_FILTER:
+//             return payload;
+//         default:
+//             return state;
+//     }
 
-            if (findContact) {
-                alert(`${payload.name} is already in contacts!`);
-                break;
-            }
-
-            return [payload, ...state];
-        case types.DELETE:
-            return state.filter(contact =>
-                contact.id !== payload)
-        default:
-            return state;
-    }
-
-};
-
-const filter = (state = '', { type, payload }) => {
-    switch (type) {
-        case types.CHANGE_FILTER:
-            return payload;
-        default:
-            return state;
-    }
-
-};
+// };
 
 
 export default combineReducers({
     items,
     filter
 })
+
+
+
+            // const findContact = state.find(contact => contact.name === payload.name && contact.number === payload.number);
+
+
+            // if (findContact) {
+            //     alert(`${payload.name} is already in contacts!`);
+            //     break;
+            // }
